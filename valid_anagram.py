@@ -1,0 +1,19 @@
+#242. Valid Anagram
+def anagram(s,t):
+    if len(s)!=len(t):
+        return False
+    b=sorted(s)
+    a=sorted(t)
+    return a==b
+print(anagram("mana","aamn"))
+
+def anagram_opt(s,t):
+    if len(s)!=len(t):
+        return False
+    counts={}
+    countt={}
+    for i in range(len(s)):
+        counts[s[i]]=1+counts.get(s[i],0)
+        countt[t[i]]=1+countt.get(t[i],0)
+    return counts==countt
+print(anagram_opt("mana","aamn"))
